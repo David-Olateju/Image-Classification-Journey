@@ -1,0 +1,66 @@
+So, I read about Computer Vision today, and below are what I learnt:
+Computer Vision is about interpreting Visual data.
+
+Computers represent images as a matrix of 1's and 0's.  An image is displayed in a gridmof pixels, and each pixel is filled with one color; either black(1), or white(0).
+Black represents the presence of figure in an image, while 0 represents the absence of a figure.
+
+"How about colorful images?"
+Well, a few number of techniques have been developed to segment the individual components of the color and, numbers are assigned to each each component. Some examples of these tehcniques are expplained below:
+a) CMYK - Cyan, Magenta, Yellow, and Key (Black). 
+This technique breaks down any color into the amount of Cyan, Magenta, Yellow, and Key (Black), respectively, which combine to make up the color that is being represented.
+
+b) RGB - Red, Green, Blue
+Another notable tehcnique is the RGB, which (like the CMYK) also combines to make up the color that is being represented. Each channel in this 8-bit image is assigned a value between 0 - 255.
+
+MANUAL IMAGE ANALYSIS TECHNIQUE
+This is a way a Computer determines which pixels represent a figure or other object.
+It could be seen as a way a figure can be isolated in an image..
+
+Manually, one can do this by turning a colorful image into a grayscale, and pointing to parts that represent the figure one is interested in, in the image via the mouse.
+Two of the ways this technique is implemented is explained below:
+a) THRESHOLDING
+This is the process of segmenting an image based on the numerical value assigned to each pixel. Edges of objects in an image is found using difference in luminance level.
+The sole aim is to seperate dark and light pixels.
+The process of picking one threshold value for the whole image is known as Global Thresholding>
+
+HOW DOES THRESHOLDING WORKS?
+A Global Threshold value is et for the iamge, with the hope that the figure (interested target) is well-isolated from the whole image.
+
+b) MORPHOLOGICAL ANALYSIS
+This technique uses structuring elements to determine the edges of shapes.
+These "structuring elements" are small matrices with specific shapes (cross, circle, rectangle, etc). It is preferred over Thresholding, due to its flexibility. While Thresholding is based on hope (or more like trial and error), Morphological Analysis' structuring elements can be varied, so they could accomodate more pixels (neighboring pixels). Hence, when dealing with complex images, Morphological Analysis is preferred.
+Morphologicaal Analysis employs two Shape Definition Methods as discussed below:
+i) DILATION
+It grows the edges of shapes by adding pixels around them. If any neighboring pixels within the limits of the structuring element are dark (1), they are added to the target pixel. 
+
+ii) EROSION
+In contrast to Dilation, this tehcnique thins out edges of shapes in an image by removing pixels from the borders, thereby reducing noises.
+
+As both methods have their drawbacks, they are therefore, combined to provide a more balanced analysis.
+Dilation is prone to add irrelevant pixels (noise) to the target pixels, all in the name of "adding to the edges," while Erosion can thin out relevant pixles.
+Two modes of combining these two methods are described below:
+> Opening: This is when Erosion is followed by Dilation. That is, when the figure is first shrunk, then grown.
+
+> Closing: This is when Dilation is folllowed by Erosion; The figure is furstly grown, then shrunken.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
